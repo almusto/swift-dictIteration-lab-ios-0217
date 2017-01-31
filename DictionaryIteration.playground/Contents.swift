@@ -18,7 +18,11 @@
  */
 // write your code here
 
-
+var highestSellingAlbum = ["Nirvana" : "Nevermind",
+                           "Blindie" : "Parallel Lines",
+                           "The Kinks" : "Low Budget",
+                           "The Beatles" : "Sgt. Pepper's Lonely Hearts Club Band"
+]
 
 
 
@@ -30,7 +34,7 @@
  */
 // write your code here
 
-
+highestSellingAlbum["Pixies"] = "Pixie's Doolittle"
 
 
 
@@ -43,7 +47,7 @@
 // write your code here
 
 
-
+highestSellingAlbum["The Kinks"] = nil
 
 
 
@@ -56,7 +60,9 @@
 let bandName = "Nirvana"
 // write your code here
 
-
+if let album = highestSellingAlbum[bandName] {
+  print("\(bandName)'s top-selling album was \(album)")
+}
 
 
 
@@ -69,7 +75,9 @@ let bandName = "Nirvana"
 // write your code here
 
 
-
+for (band, album) in highestSellingAlbum {
+  print("\(band)'s top-selling album was \(album)")
+}
 
 
 
@@ -79,7 +87,7 @@ let bandName = "Nirvana"
  ### 6. What type of data structure is returned when you iterate over a dictionary?
  */
 
-
+//not really sure sure what this means, but when you iterate over a dictionary you are getting back the key value pairs in whatever format you dictate
 
 
 
@@ -90,7 +98,7 @@ let bandName = "Nirvana"
  ### 7. Imagine every student in every grade in a high school took an exam. Each student got a letter grade based on their test results (A, B, C, D, and F). The results were averaged together per grade. How could you represent this mapping of grades to exam average?
  */
 
-
+// you can make a dictionary with the keys being the grade and the values being the averaged results.  To get the average across all grades you can iterate through the dictionary and compute the average.  It gets more complicated if you want to take into consideration the number of stuedents in each grade or adjust the wieghtings.
 
 
 
@@ -107,6 +115,11 @@ let bandName = "Nirvana"
  */
 // write your code here
 
+let examResults = [9 : "B",
+                   10 : "A",
+                   11 : "C",
+                   12 : "D"
+]
 
 
 
@@ -119,7 +132,9 @@ let bandName = "Nirvana"
  */
 // write your code here
 
-
+for (grade, score) in examResults {
+  print("Grade \(grade) got a \(score)")
+}
 
 
 
@@ -131,9 +146,18 @@ let bandName = "Nirvana"
  */
 // write your code here
 
-
-
-
-
+var highestGrade = 0
+for (grade, score) in examResults {
+  if let bestGrade = examResults[highestGrade] {
+    if score < bestGrade {
+      highestGrade = grade
+    }
+  } else {
+    highestGrade = grade
+  }
+}
+if let bestGrade = examResults[highestGrade] {
+  print("Grade \(highestGrade) got the highest score with \(bestGrade)!")
+}
 
 
